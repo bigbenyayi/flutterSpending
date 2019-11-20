@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_spending/widgets/chart_bar.dart';
 import 'package:intl/intl.dart';
 
 import './chart_bar.dart';
@@ -18,9 +17,9 @@ class Chart extends StatelessWidget {
       var totalSum = 0.0;
 
       for (var i = 0; i < recentTransactions.length; i++) {
-        if (recentTransactions[i].dateTime.day == weekDay.day &&
-            recentTransactions[i].dateTime.month == weekDay.month &&
-            recentTransactions[i].dateTime.year == weekDay.year) {
+        if (recentTransactions[i].date.day == weekDay.day &&
+            recentTransactions[i].date.month == weekDay.month &&
+            recentTransactions[i].date.year == weekDay.year) {
           totalSum += recentTransactions[i].amount;
         }
       }
@@ -40,7 +39,7 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return (Card(
+    return Card(
       elevation: 6,
       margin: EdgeInsets.all(20),
       child: Padding(
@@ -61,6 +60,6 @@ class Chart extends StatelessWidget {
           }).toList(),
         ),
       ),
-    ));
+    );
   }
 }
